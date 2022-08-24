@@ -12,12 +12,15 @@ import styled, { css } from 'styled-components';
 
 const SidebarContainer = styled.div`
   width: 180px;
-  height: 100vh;
+  min-height: 100vh;
   background-color: #111827;
   color: #9ca3af;
   display: flex;
   flex-direction: column;
   align-items: center;
+  @media only screen and (max-width: 768px) {
+    width: 50px;
+  };
 `;
 const Top = styled.div`
   display: flex;
@@ -37,6 +40,9 @@ const Top = styled.div`
 const Brand = styled.span`
   font-weight: bold;
   cursor: pointer;
+  @media only screen and (max-width: 768px) {
+    display: none;
+  };
 `;
 const Center = styled.div`
   display: flex;
@@ -74,8 +80,15 @@ const ListItem = styled.li`
   /* active styling */
   color: ${props => props.active ? css`white` : 'inherit'};
   background-color: ${props => props.active ? css`#374151` : 'inherit'};
+  @media only screen and (max-width: 768px) {
+    justify-content: center;
+  };
 `;
-const ListItemSpan = styled.span``;
+const ListItemSpan = styled.span`
+  @media only screen and (max-width: 768px) {
+    display: none;
+  };
+`;
 const Bottom = styled.div`
   display: flex;
   align-items: center;
@@ -83,6 +96,9 @@ const Bottom = styled.div`
   width: 80%;
   padding: 10px 0;
   margin-bottom: 10px;
+  @media only screen and (max-width: 768px) {
+    flex-direction: column;
+  };
 `;
 const ColorBox = styled.div`
   width: 20px;
@@ -100,6 +116,10 @@ const ColorBox = styled.div`
   };
   &.light {
     background-color: #f3f4f6;
+  };
+  @media only screen and (max-width: 768px) {
+    margin-bottom: 10px;
+    margin-right: 0;
   };
 `;
 
