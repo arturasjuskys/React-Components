@@ -8,7 +8,8 @@ import {
   Store,
   HelpOutline
 } from "@material-ui/icons";
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
+import { useRef } from 'react';
 
 const SidebarContainer = styled.div`
   width: 180px;
@@ -21,6 +22,15 @@ const SidebarContainer = styled.div`
   @media only screen and (max-width: 768px) {
     width: 50px;
   };
+  /* color button selectors */
+  &.dark {
+    background-color: #312e81;
+    color: #b4bbc7;
+  };
+  &.light {
+    background-color: #f3f4f6;
+    color: #111827;
+  }
 `;
 const Top = styled.div`
   display: flex;
@@ -78,11 +88,21 @@ const ListItem = styled.li`
     color: white;
   }
   /* active styling */
-  color: ${props => props.active ? css`white` : 'inherit'};
-  background-color: ${props => props.active ? css`#374151` : 'inherit'};
+  &.active {
+    background-color: #374151;
+    color: white;
+  }
   @media only screen and (max-width: 768px) {
     justify-content: center;
   };
+  /* color button selector */
+  &.dark.active {
+    background-color: #4338ca;
+  };
+  &.light.active {
+    background-color: #d1d5db;
+    color: #111827;
+  }
 `;
 const ListItemSpan = styled.span`
   @media only screen and (max-width: 768px) {
@@ -108,10 +128,10 @@ const ColorBox = styled.div`
   margin-right: 15px;
   cursor: pointer;
   /* class selectors */
-  &.dark {
+  &.night {
     background-color: #111827;
   };
-  &.night {
+  &.dark {
     background-color: #312e81;
   };
   &.light {
@@ -124,15 +144,26 @@ const ColorBox = styled.div`
 `;
 
 export default function Sidebar() {
+  // target to access for theme change
+  const sidebar = useRef(null);
+
+  const handleClick = e => {
+    const buttonValue = e.target.classList[2];
+    sidebar.current.classList.remove('night');
+    sidebar.current.classList.remove('dark');
+    sidebar.current.classList.remove('light');
+    sidebar.current.classList.add(buttonValue);
+  };
+
   return (
-    <SidebarContainer>
+    <SidebarContainer className="sidebar" ref={sidebar}>
       <Top>
         <Menu className="logo" />
         <Brand>The App</Brand>
       </Top>
       <Center>
         <List>
-          <ListItem active>
+          <ListItem className='active'>
             <Home className="icon" />
             <ListItemSpan>Dashboard</ListItemSpan>
           </ListItem>
@@ -163,9 +194,9 @@ export default function Sidebar() {
         </List>
       </Center>
       <Bottom>
-        <ColorBox className="dark"></ColorBox>
-        <ColorBox className="night"></ColorBox>
-        <ColorBox className="light"></ColorBox>
+        <ColorBox className="night" onClick={handleClick}></ColorBox>
+        <ColorBox className="dark" onClick={handleClick}></ColorBox>
+        <ColorBox className="light" onClick={handleClick}></ColorBox>
       </Bottom>
     </SidebarContainer>
   );
