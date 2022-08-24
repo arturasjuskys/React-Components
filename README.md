@@ -7,3 +7,5 @@ This project is for learning purposes. Tutorial that I followed was coded in HTM
 * `npx i create-react-app responsive-sidebar`
 * `npm i styled-copmponents`
 * `npm i @material-ui/core @material-ui/icons`
+
+![](./combine_images.jpg)
