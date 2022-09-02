@@ -4,5 +4,5 @@
 
 ## Resources
 
-- Kevin Powell: [Improve your form validation hints without JS!](https://www.youtube.com/watch?v=s2ThIxm7FyA&list=PLmqqPpG6sLz539ETTSTsgF8z6Hn4tyqTy&index=15)
+- Kevin Powell: [Improve your form validation hints without JS!](https://www.youtube.com/watch?v=s2ThIxm7FyA&list)
 - Regex: [regexr.com](https://regexr.com/)

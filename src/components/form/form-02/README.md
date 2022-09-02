@@ -4,7 +4,7 @@
 
 ## Resources
 
-- Lama Dev: [BEST Ways to Handle and Validate React Forms without a Library](https://www.youtube.com/watch?v=tIdNeoHniEY&list=PLmqqPpG6sLz539ETTSTsgF8z6Hn4tyqTy&index=23)
+- Lama Dev: [BEST Ways to Handle and Validate React Forms without a Library](https://www.youtube.com/watch?v=tIdNeoHniEY&list)
 - Lama Dev: [Repo](https://github.com/safak/youtube/tree/react-form)
 - `npm i styled-components`
 
