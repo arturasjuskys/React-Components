@@ -1,13 +1,11 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-// import Form from "./components/form/02-form/Form";
-import Form from "./components/form/input-01/Form";
-import Sidebar from "./components/menu/responsive-menu/Sidebar";
+import NavAndMenu from "./components/menu/responsive-02/NavAndMenu";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     {/* <Sidebar /> */}
-    <Form />
+    <NavAndMenu />
   </React.StrictMode>
 );
