@@ -56,6 +56,17 @@ const Container = styled.nav`
     justify-content: space-between;
     cursor: pointer;
 
+    /* this animates hamburger to cross */
+    &.active span:first-child {
+      transform: rotate(45deg);
+    }
+    &.active span:nth-child(2) {
+      opacity: 0;
+    }
+    &.active span:last-child {
+      transform: rotate(-45deg);
+    }
+
     span {
       width: 100%;
       height: 3px;
@@ -113,6 +124,7 @@ const Menu = styled.div`
 
 export default function Nav() {
   const menuRef = useRef();
+  const iconRef = useRef();
 
   return (
     <>
@@ -127,14 +139,18 @@ export default function Nav() {
         </div>
         <div
           className="hamburger"
-          onClick={() => menuRef.current.classList.toggle("active")}
+          ref={iconRef}
+          onClick={() => {
+            menuRef.current.classList.toggle("active");
+            iconRef.current.classList.toggle("active");
+          }}
         >
           <span className="lin1"></span>
           <span className="lin2"></span>
           <span className="lin3"></span>
         </div>
       </Container>
-      <Menu ref={menuRef} className="active">
+      <Menu ref={menuRef}>
         <ul>
           <li>Home</li>
           <li>Intro</li>
